@@ -1,0 +1,29 @@
+<% provide(:title, @classpages.name) %>
+<h1>
+  <%= @classpages.name%>
+</h1>
+      <section class="post_form">
+      <%= link_to 'New Post', new_post_path(:classpage => @classpages.id) %>
+      </section>
+      
+    <% if @classpages.posts.any? %>
+      <ol class="microposts">
+        <% @posts.each do |post| %>
+        <h3><%= link_to post.title, post%><h3>
+        <span class="user">
+            
+            <small>
+  
+            Posted <%= time_ago_in_words(post.created_at) %> ago by
+            <%= link_to User.find(post.user_id).name,User.find(post.user_id)%>
+        
+
+            </small>
+    		
+		    </span>
+        <%end%>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+
+  

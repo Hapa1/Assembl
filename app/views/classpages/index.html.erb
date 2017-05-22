@@ -1,0 +1,21 @@
+<% provide(:title, 'All classes') %>
+<h1>All classes</h1>
+
+
+<%= will_paginate %>
+
+<ul class="users">
+   <% @classpages.each do |classpage| %>
+        <span class="user">
+       
+            <h5><%= link_to classpage.name, 
+			classpage_path(classpage, :classpage => classpage.id)%>
+
+			 </h5>
+		    </span>
+        <%end%>
+</ul>
+
+
+<%= will_paginate %>
+
